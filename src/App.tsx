@@ -47,7 +47,7 @@ function App() {
 
   function onCreateNote(data: NoteData) {
     setNotes(prevNotes => {
-      return [...prevNotes, {...data, id: uuidV4(), tagIds: tags.map(tag => tag.id)}]
+      return [...prevNotes, {...data, id: uuidV4(), tagIds: data.tags.map(tag => tag.id)}]
     })
   }
 
@@ -58,7 +58,7 @@ function App() {
   return (
     <Container className="my-4">
       <Routes>
-        <Route path="/" element={<NoteList />} />
+        <Route path="/" element={<NoteList notes={notesWithTags} availableTags={tags} />} />
         <Route path="/new" element={<NewNote onSubmit={onCreateNote} onAddTag={addTag} availableTags={tags} />} />
         <Route path="/:id">
           <Route index element={<h1>Show</h1>} />
