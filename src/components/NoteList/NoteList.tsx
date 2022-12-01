@@ -2,7 +2,7 @@ import { useEffect, useMemo, useState } from "react";
 import { Badge, Button, Card, Col, Form, Row, Stack } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import ReactSelect from "react-select";
-import { Tag } from "./App";
+import { Tag } from "../../App";
 import styles from "./NoteList.module.css";
 
 type NoteListProps = {
@@ -19,8 +19,7 @@ type SimplifiedNote = {
 export function NoteList({ availableTags, notes }: NoteListProps) {
   const [selectedTags, setSelectedTags] = useState<Tag[]>([])
   const [title, setTitle] = useState('')
-
-  // TODO: fix filter result not accurate, showing all tags
+  
   const filteredNotes = useMemo(() => {
     return notes.filter(note => {
       return (

@@ -2,10 +2,10 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import { useMemo } from "react";
 import { Container } from "react-bootstrap";
 import { Navigate, Route, Routes } from "react-router-dom";
-import { NewNote } from "./NewNote";
-import { useLocalStorage } from "./useLocalStorage";
+import { NewNote } from "./components/NewNote/NewNote";
+import { useLocalStorage } from "./hooks/useLocalStorage";
 import { v4 as uuidV4 } from 'uuid';
-import { NoteList } from "./NoteList";
+import { NoteList } from "./components/NoteList/NoteList";
 
 export type NoteData = {
   title: string
